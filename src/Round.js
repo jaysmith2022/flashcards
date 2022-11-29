@@ -8,13 +8,20 @@ class Round {
     }
 
     returnCurrentCard = () => {
-        return this.deck.cards[0]
+        return this.deck.cards[this.turns]
     }
 
     takeTurn = (guess) => {
         const newTurn = new Turn(guess, this.deck.cards[this.turns])
+        if (!newTurn.evaluateGuess()) {
+            this.incorrectGuesses.push(this.deck.cards[this.turns].id)
+        }
         this.turns ++
-        console.log(guess)
+        return newTurn.giveFeedback()
+    }
+    calculatePercentCorrect = () => {
+        let totalScore = ((this.turns - this.incorrectGuesses.length) / this.turns) * 100
+        return Math.floor(totalScore)
     }
 }
 

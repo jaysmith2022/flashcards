@@ -54,5 +54,27 @@ it('should be an instance of Turn', () => {
 it('should update turn count when a turn is taken', () => {
     round.takeTurn('object')
     expect(round.turns).to.equal(1)
+    round.takeTurn('array')
+    expect(round.turns).to.equal(2)
+})
+
+it('should change cards after turn is taken', () => {
+    expect(round.returnCurrentCard()).to.equal(card1)
+    round.takeTurn('object')
+    expect(round.returnCurrentCard()).to.equal(card2)
+    round.takeTurn('map()')
+    expect(round.returnCurrentCard()).to.equal(card3)
+})
+
+it('should store incorrect guesses', () => {
+    expect(round.takeTurn('array')).to.equal('Correct!')
+    expect(round.takeTurn('array')).to.equal('Incorrect!')
+})
+
+it('should calculate correct percent', () => {
+    round.takeTurn('array')
+    round.takeTurn('array')
+    round.takeTurn('map()')
+    expect(round.calculatePercentCorrect()).to.equal(66)
 })
 })
