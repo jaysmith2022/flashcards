@@ -25,7 +25,7 @@ class Round {
     }
 
     endRound = () => {
-       let log = console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% correctly`)
+       console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% correctly`)
         return `** Round over! ** You answered ${this.calculatePercentCorrect()}% correctly`
     }
 }
