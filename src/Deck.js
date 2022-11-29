@@ -3,7 +3,7 @@ class Deck {
         this.cards = cards
     }
 
-    cardAmount = () => this.cards.length
+    countCards = () => this.cards.length
 }
 
 
