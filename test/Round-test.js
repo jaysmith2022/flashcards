@@ -77,11 +77,4 @@ it('should calculate correct percent', () => {
     round.takeTurn('map()')
     expect(round.calculatePercentCorrect()).to.equal(66)
 })
-
-it('should print to console when round is over', () => {
-    round.takeTurn('array')
-    round.takeTurn('array')
-    expect(round.endRound()).to.equal('** Round over! ** You answered 50% correctly')
-
-})
 })

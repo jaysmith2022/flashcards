@@ -29,6 +29,6 @@ it('should be able to store an array of cards', () => {
 })
 
 it('should be able count cards in array', () => {
-    expect(deck.cardAmount()).to.equal(3);
+    expect(deck.countCards()).to.equal(3);
 })
 })
