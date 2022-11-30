@@ -28,13 +28,12 @@ I created a console playable flash card learning game will using TDD to test the
 
 
 ## Preview
+https://user-images.githubusercontent.com/107894408/204827166-a740a0c0-b78a-401d-8cf7-4b1a644a9d71.mp4
 
-
----
 
 ## Sources
- - [MDN]
- - [W3Schools]
+ - [MDN](https://developer.mozilla.org/en-US/)
+ - [W3Schools](https://www.w3schools.com/)
 
 
 ## Contributor
