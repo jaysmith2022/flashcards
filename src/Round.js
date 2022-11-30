@@ -1,12 +1,14 @@
-const Turn = require("./Turns")
-const Game = require("./Game")
+const Turn = require('./turns')
+const Game = require('./Game')
+
 
 
 class Round {
-    constructor(deck) {
+    constructor(deck, game) {
         this.deck = deck
         this.turns = 0
         this.incorrectGuesses = []
+        this.game = game
     }
 
     returnCurrentCard = () => {
@@ -21,6 +23,7 @@ class Round {
         this.turns ++
         return newTurn.giveFeedback()
     }
+
     calculatePercentCorrect = () => {
         let totalScore = ((this.turns - this.incorrectGuesses.length) / this.turns) * 100
         return Math.floor(totalScore)
@@ -29,14 +32,12 @@ class Round {
     endRound = () => {
         if (this.calculatePercentCorrect() < 90) {
             console.log(`Your score was ${this.calculatePercentCorrect()}% and below 90%. You need more practice! Lets start again!`)
-            const startOver = new Game()
-            startOver.start()
+            this.game.start()
     } else {
         console.log(`** Round over! ** You answered ${this.calculatePercentCorrect()}% correctly`)
         return `** Round over! ** You answered ${this.calculatePercentCorrect()}% correctly`
     }
-
-    }
+}
 }
 
 
