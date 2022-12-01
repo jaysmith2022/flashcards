@@ -16,6 +16,7 @@ describe("Deck", function () {
         card3 = new Card(12, "Which iteration method returns an array of the same length as the original array?", ["map()", "forEach()", "reduce()"], "map()");
         deck = new Deck([card1, card2, card3]);
     })
+    
 it("should be a function", () => {
     expect(Deck).to.be.a('function')
 })
