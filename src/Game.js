@@ -15,13 +15,26 @@ class Game {
   }
 
   start() {
-    this.cards.map((card) => {
+    this.startGame()
+    this.printMessage(this.createNewDeck())
+    this.printQuestion(this.startGame())
+  }
+
+  startGame = () => {
+    this.currentRound = new Round(this.createNewDeck(), this)
+    return this.currentRound
+  }
+
+  createNewDeck = () => {
+    const newStartDeck = new Deck(this.createNewCards())
+    return newStartDeck
+  }
+
+  createNewCards = () => {
+    const newCards = this.cards.map((card) => {
       return new Card(card.id, card.question, card.answers, card.correctAnswer);
     });
-    const newStartDeck = new Deck(this.cards)
-    this.currentRound = new Round(newStartDeck, this)
-    this.printMessage(newStartDeck)
-    this.printQuestion(this.currentRound)
+    return newCards
   }
   
   printQuestion(round) {
