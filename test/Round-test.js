@@ -15,6 +15,7 @@ describe('Round', function() {
     let deck;
     let round;
     let turn;
+
     this.beforeEach(() => {
     card1 = new Card(2, "What is a comma-separated list of related values?", ["object", "array", "function"], "array");
     card2 = new Card(5, "What type of prototype method loops through the existing array and applies a callback function that may mutate each element and return a new value?", ["mutator method", "accessor method", "iteration method"], "iteration method");
@@ -24,9 +25,9 @@ describe('Round', function() {
     round = new Round(deck);
 })
 
- it('should be a function', () =>  {
+it('should be a function', () =>  {
         expect(Round).to.be.a('function');
-    })
+})
 
 it('should be an instance of round', () => {
     expect(round).to.be.an.instanceOf(Round)
@@ -47,6 +48,14 @@ it('turns should default to 0', () => {
 it('should start with no incorrect guesses', () => {
     expect(round.incorrectGuesses).to.deep.equal([])
 })
+
+it('should store incorrect guesses', () => {
+    round.takeTurn('object')
+    expect(round.incorrectGuesses).to.be.lengthOf(1)
+    round.takeTurn('object')
+    expect(round.incorrectGuesses).to.be.lengthOf(2)
+})
+
 it('should be an instance of Turn', () => {
     expect(turn).to.be.an.instanceOf(Turn)
 })
@@ -76,5 +85,11 @@ it('should calculate correct percent', () => {
     round.takeTurn('array')
     round.takeTurn('map()')
     expect(round.calculatePercentCorrect()).to.equal(66)
+})
+
+it('should console log message if score is below 90%', () => {
+    round.takeTurn('array')
+    round.takeTurn('iteration method')
+    expect(round.endRound()).to.equal(`** Round over! ** You answered 100% correctly`)
 })
 })
