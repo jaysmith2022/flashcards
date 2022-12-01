@@ -21,16 +21,21 @@ describe("Game", function () {
         expect(Game).to.be.a('function')
     })
 
-    it('should be instance of Game', () => {
-        expect(game).to.be.an.instanceOf(Game)
+    it('should be an instance of Round', () => {
+        expect(game.startGame()).to.be.an.instanceOf(Round);
     })
-
+    
     it("Should be an instance of Deck", () => {
-        expect(deck).to.be.an.instanceOf(Deck);
+        expect(game.createNewDeck()).to.be.an.instanceOf(Deck);
     });
 
-    it('should be an instance of Round', () => {
-        expect(round).to.be.an.instanceOf(Round);
+    it('should create a new card', () => {
+        expect(game.createNewCards()).to.be.an('array')
+    })
+
+
+    it('should have new deck with new round', () => {
+        expect(game.startGame()).to.be.an('object')
     })
 
 })

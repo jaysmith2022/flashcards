@@ -11,7 +11,7 @@ class Turn {
     evaluateGuess = () => this.guess === this.newCard.correctAnswer 
     
     giveFeedback = () => {
-        if (this.evaluateGuess() === true) {
+        if (this.evaluateGuess()) {
             return "Correct!"
         } else {
             return "Incorrect!"
