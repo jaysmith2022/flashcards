@@ -28,7 +28,8 @@ I created a console playable flash card learning game will using TDD to test the
 
 
 ## Preview
-https://user-images.githubusercontent.com/107894408/204827166-a740a0c0-b78a-401d-8cf7-4b1a644a9d71.mp4
+
+![ezgif com-gif-maker](https://user-images.githubusercontent.com/107894408/205172054-d572a6b3-c4bc-4475-b913-92ecb0bf700c.gif)
 
 
 ## Sources
